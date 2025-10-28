@@ -1,0 +1,403 @@
+/* Reset בסיסי */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* רקע כללי */
+body {
+  background-color: #deedfa; /* כחול בהיר */
+  color: #333;
+  line-height: 1.5;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ===== Header ===== */
+header {
+  background: #1e293b; /* כחול כהה */
+  color: #fff;
+  padding: 15px;
+}
+
+/* מבנה ההדר */
+.div_continer_head {
+  display: flex;
+  justify-content: flex-start; /* הכותרת במרכז */
+  align-items: center;
+  position: relative;
+}
+
+.item_header {
+  padding: 3px;
+}
+
+#item_title {
+  position: absolute; /* יוצרת שכבת מיקום נפרדת */
+  left: 50%; /* ממרכזת לפי האורך */
+  transform: translateX(-50%); /* בדיוק באמצע */
+}
+
+/* לוגו */
+.img_logo {
+  width: 60px;
+  height: auto;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* כפתור אזור אישי */
+.a_my_area {
+  background: #2563eb;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+.a_my_area:hover {
+  background: #1d4ed8;
+}
+
+/* סל קניות */
+#imgShopinig {
+  width: 3rem;
+  height: 3rem;
+  object-fit: contain;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* כותרת ראשית */
+.div_continer_head h1 {
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+/* ===== Sidebar ===== */
+.div_continer_side {
+  background: #334155;
+  padding: 10px;
+}
+
+.sidebar_ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar_ul_a {
+  display: block;
+  text-decoration: none;
+  color: #f1f5f9;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.sidebar_ul_a:hover {
+  background: #475569;
+}
+
+/* ===== Main ===== */
+main {
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid #ccc; /* קו תחתון */
+  padding-bottom: 20px;
+}
+
+/* טקסט פתיחה */
+.main_p_open_face {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #e2e5bc;
+  font-size: 2rem;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 20px;
+  color: #222;
+  border-radius: 6px;
+}
+
+/* ===== Category Menu ===== */
+.category_menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* מאפשר גלישה של כפתורים במסכים קטנים */
+  gap: 10px; /* רווח בין הכפתורים */
+  margin-bottom: 25px; /* רווח מתחת לתפריט */
+}
+
+.category_button {
+  padding: 8px 16px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #1e293b; /* כחול כהה מהכותרת שלך */
+  background-color: #ffffff; /* רקע לבן נקי */
+  border: 1px solid #cbd5e1; /* גבול אפרפר עדין */
+  border-radius: 6px; /* פינות מעוגלות כמו שאר הכפתורים */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none; /* אם תשתמש בתגי <a> */
+}
+
+/* אפקט Hover */
+.category_button:hover {
+  background-color: #f1f5f9; /* רקע אפרפר בהיר */
+  border-color: #94a3b8;
+}
+
+/* מצב "פעיל" - כשהקטגוריה בחורה */
+.category_button.active {
+  background-color: #2563eb; /* כחול ראשי מהכפתור "My area" */
+  color: #ffffff;
+  border-color: #2563eb;
+}
+
+/* ===== מוצרים ===== */
+.continer_all_item {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.continer_my_item {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.item_price {
+  display: flex; /* Make it a flex container */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center items horizontally */
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.item_price:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* תמונות מוצרים */
+.item_price_img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+/* New styles for the container holding the button and quantity */
+.product_actions {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the button and quantity */
+  gap: 10px; /* Space between button and quantity */
+  margin-top: 10px; /* Space above the actions */
+  width: 100%; /* Ensure it takes full width of its parent */
+}
+
+/* New styles for the quantity paragraph */
+.product_quantity {
+  font-size: 0.9rem;
+  color: #555;
+  background-color: #f0f0f0;
+  padding: 2px 4px;
+  border-radius: 4px;
+  white-space: norml; /* Prevent text wrapping */
+  max-width: 80px;
+  
+}
+
+/* מחיר */
+.item_figcaption_price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #2563eb;
+}
+
+.button_for_card, .butoon_for_remove{
+  background-color: #475569;
+  font-size: 14px;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button_for_card:hover {
+  background-color: #637082;
+}
+
+.continer_item {
+  height: 200px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  align-items: stretch;
+  position: relative;
+  margin-top: 10px;
+  gap: 15px;
+}
+
+.item_in_choice_img {
+  height: 100%;
+  width: 100%;
+  border-radius: 25px;
+  object-fit: contain;
+}
+
+.p_ProductDescription {
+  /* border: solid 1px rebeccapurple; */
+  /* background-color: #b6d6f4; */
+  /* padding: 0.3rem; */
+  border-radius: 5px;
+  font-size: large;
+  align-self: flex-start;
+}
+
+.item_Description {
+  /* height: 100%; */
+  border: solid 1px rebeccapurple;
+  background-color: #b6d6f4;
+  padding: 0.3rem;
+  border-radius: 5px;
+  /* align-self: flex-start; */
+}
+
+.item_for_button_for_pay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item_button_pay {
+  background-color: #2563eb;
+  height: 50%;
+  width: 100%;
+  font-size: large;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.div_continer_footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.item_span_footer {
+  background-color: #0072c6;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.item_span_footer:hover {
+  background-color: #005a9e;
+}
+
+.tooltip_box {
+  position: absolute;
+  background-color: #333;
+  color: #fff;
+  padding: 8px 12px;
+  margin: 3px 3px;
+  border-radius: 6px;
+  font-size: 14px;
+  z-index: 1000;
+  white-space: nowrap; /* מונע שבירת שורות */
+  opacity: 1; /* שקיפות מלאה */
+  transition: opacity 0.3s;
+  transform: translateX(
+    -35%
+  ); /* מתקן את המיקום כך שהמרכז של החלונית יתאים למרכז הכפתור */
+}
+
+/* ===== רספונסיביות ===== */
+@media (max-width: 600px) {
+  .div_continer_head {
+    display: grid; /* שימוש ב-Grid */
+    grid-template-areas:
+      "logo myArea shopping" /* שורה ראשונה: לוגו, אזור אישי, סל קניות */
+      "title title title"; /* שורה שנייה: כותרת על כל הרוחב */
+    gap: 15px; /* ריווח בין האלמנטים */
+    justify-content: space-around;
+    justify-items: center; /* ממורכז את הפריטים אופקית בתא שלהם */
+  }
+
+  /* שיוך האלמנטים לאזורים שהגדרנו */
+  .item_imag {
+    grid-area: logo;
+  }
+  .item_my_area {
+    grid-area: myArea;
+  }
+  .button_my_shopinig.hover_element {
+    grid-area: shopping;
+  }
+  #item_title {
+    grid-area: title;
+  }
+
+  .div_continer_head h1 {
+    margin-bottom: 10px;
+  }
+
+  .continer_all_item {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  #item_title {
+    position: relative;
+    left: auto; /* איפוס מיקום אבסולוטי */
+    transform: none; /* איפוס מיקום אבסולוטי */
+  }
+
+  .item_span_footer {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+}
+
+/* Responsive adjustments for product_actions */
+@media (max-width: 600px) {
+  .product_actions {
+    flex-direction: column; /* Stack button and quantity vertically on small screens */
+    gap: 5px;
+  }
+  .button_for_card {
+    width: 100%; /* Make button full width */
+  }
+}
