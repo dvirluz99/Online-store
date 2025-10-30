@@ -1,200 +1,412 @@
+// function createProductElement(product, strForButtonInCard) {
+//   const className1 = {
+//     productItem: "item_price",
+//     productFigureImg: "figureImg",
+//     productItemImg: "item_price_img",
+//     productfigcaptionPrice: "item_figcaption_price",
+//   };
 
-function createProductElement(product, index, strForButtonInCard) {
-  const className1 = {
-    productItem: "item_price",
-    productFigureImg: "figureImg",
-    productItemImg: "item_price_img",
-    productfigcaptionPrice: "item_figcaption_price",
-  };
+//   // אלמנטים עיקריים
+//   const div = document.createElement("div");
+//   div.className = className1.productItem;
+//   div.setAttribute("data-id", product.id);
 
-  // אלמנטים עיקריים
-  const div = document.createElement("div");
-  div.className = className1.productItem;
-  div.setAttribute("data-index", index);
+//   const ancore = document.createElement("a");
+//   ancore.setAttribute("data-id", product.id);
 
-  const ancore = document.createElement("a");
-  ancore.setAttribute("data-index", index);
+//   const figure = document.createElement("figure");
+//   figure.className = className1.productFigureImg;
+//   figure.setAttribute("data-id", product.id);
 
-  const figure = document.createElement("figure");
-  figure.className = className1.productFigureImg;
-  figure.setAttribute("data-index", index);
+//   const img = document.createElement("img");
+//   img.className = className1.productItemImg;
+//   img.src = product.img;
+//   img.setAttribute("data-id", product.id);
 
-  const img = document.createElement("img");
-  img.className = className1.productItemImg;
-  img.src = product.img;
-  img.setAttribute("data-index", index);
+//   const figcaption = document.createElement("figcaption");
+//   figcaption.className = className1.productfigcaptionPrice;
+//   figcaption.textContent = product.price;
+//   figcaption.setAttribute("data-id", product.id);
 
-  const figcaption = document.createElement("figcaption");
-  figcaption.className = className1.productfigcaptionPrice;
-  figcaption.textContent = product.price;
-  figcaption.setAttribute("data-index", index);
+//   // אלמנט לפעולות על המוצר (כמות + כפתור)
+//   const productActionsDiv = document.createElement("div");
+//   productActionsDiv.className = "product_actions";
 
-  // אלמנט לפעולות על המוצר (כמות + כפתור)
-  const productActionsDiv = document.createElement("div");
-  productActionsDiv.className = "product_actions";
+//   const quantityP = document.createElement("p");
+//   quantityP.className = "product_quantity";
+//   quantityP.textContent = `Quantity in stack: ${product.Quantity}`;
+//   quantityP.setAttribute("data-id", product.id);
 
-  const quantityP = document.createElement("p");
-  quantityP.className = "product_quantity";
-  quantityP.textContent = `Quantity in stack: ${product.Quantity}`;
-  quantityP.setAttribute("data-index", index);
+//   const button = document.createElement("button");
+//   button.className = "button_for_card";
+//   button.textContent = strForButtonInCard;
+//   button.setAttribute("data-id", product.id);
 
-  const button = document.createElement("button");
-  button.className = "button_for_card";
-  button.textContent = strForButtonInCard;
-  button.setAttribute("data-index", index);
+//   // בניית מבנה ה־DOM
+//   productActionsDiv.appendChild(quantityP);
+//   productActionsDiv.appendChild(button);
 
-  // בניית מבנה ה־DOM
-  productActionsDiv.appendChild(quantityP);
-  productActionsDiv.appendChild(button);
+//   figure.appendChild(img);
+//   figure.appendChild(figcaption);
 
-  figure.appendChild(img);
-  figure.appendChild(figcaption);
+//   ancore.appendChild(figure);
 
-  ancore.appendChild(figure);
+//   div.appendChild(ancore);
+//   div.appendChild(productActionsDiv);
 
-  div.appendChild(ancore);
-  div.appendChild(productActionsDiv);
+//   return div;
+// }
 
-  return div;
-}
+// // פונקציה ליצירת קונטיינר של כל המוצרים במסך הראשי
+// export function loadAllCard(productsArry, containerProducts, strForButtonInCard) {
+//   const container = document.querySelector(containerProducts);
+//   container.innerHTML = ""; // נקה קודם
+//   productsArry.forEach((product) => {
+//     const productElement = createProductElement(
+//       product,
+//       strForButtonInCard
+//     );
+//     container.appendChild(productElement);
+//   });
+// }
 
-// פונקציה ליצירת קונטיינר של כל המוצרים במסך הראשי
-export function loadAllCard(productsArry, containerProducts, strForButtonInCard) {
-  const container = document.querySelector(containerProducts);
-  container.innerHTML = ""; // נקה קודם
-  productsArry.forEach((product, index) => {
-    const productElement = createProductElement(
-      product,
-      index,
-      strForButtonInCard
-    );
-    container.appendChild(productElement);
-  });
-}
+// function createProductElementInMyShoppingCart(
+//   product,
+//   strForButtonInCardForPay
+// ) {
+//   const className1 = {
+//     productItem: "item_price",
+//     productFigureImg: "figureImg",
+//     productItemImg: "item_price_img",
+//     productfigcaptionPrice: "item_figcaption_price",
+//   };
+//   const div = document.createElement("div");
+//   div.className = className1.productItem;
 
+//   const ancore = document.createElement("a");
 
-function createProductElementInMyShoppingCart(
-  product,
-  index,
-  strForButtonInCardForPay
-) {
-  const className1 = {
-    productItem: "item_price",
-    productFigureImg: "figureImg",
-    productItemImg: "item_price_img",
-    productfigcaptionPrice: "item_figcaption_price",
-  };
-  const div = document.createElement("div");
-  div.className = className1.productItem;
+//   const figure = document.createElement("figure");
+//   figure.className = className1.productFigureImg;
 
-  const ancore = document.createElement("a");
+//   const img = document.createElement("img");
+//   img.className = className1.productItemImg;
 
-  const figure = document.createElement("figure");
-  figure.className = className1.productFigureImg;
+//   const figcaption = document.createElement("figcaption");
+//   figcaption.className = className1.productfigcaptionPrice;
 
-  const img = document.createElement("img");
-  img.className = className1.productItemImg;
+//   figcaption.textContent = product.price;
+//   img.src = product.img;
 
-  const figcaption = document.createElement("figcaption");
-  figcaption.className = className1.productfigcaptionPrice;
+//   // Create a container for the button and quantity
+//   const productActionsDiv = document.createElement("div");
+//   productActionsDiv.className = "product_actions";
 
-  figcaption.textContent = product.price;
-  img.src = product.img;
+//   const buttonRemove = document.createElement("button"); // תיקנתי מ-"butoon" ל-"button"
+//   buttonRemove.className = "butoon_for_remove";
+//   buttonRemove.textContent = `remove`;
+//   buttonRemove.setAttribute("data-id", product.id);
+//   productActionsDiv.appendChild(buttonRemove); // Add quantity paragraph first
 
-  // Create a container for the button and quantity
-  const productActionsDiv = document.createElement("div");
-  productActionsDiv.className = "product_actions";
+//   const button = document.createElement("button");
+//   button.className = "button_for_card";
+//   button.textContent = strForButtonInCardForPay;
+//   button.setAttribute("data-id", product.id);
+//   productActionsDiv.appendChild(button); // Add button second
 
-  const buttonRemove = document.createElement("button"); // תיקנתי מ-"butoon" ל-"button"
-  buttonRemove.className = "butoon_for_remove";
-  buttonRemove.textContent = `remove`;
-  buttonRemove.setAttribute("data-index", index);
-  productActionsDiv.appendChild(buttonRemove); // Add quantity paragraph first
+//   div.setAttribute("data-id", product.id);
+//   ancore.setAttribute("data-id", product.id);
+//   figure.setAttribute("data-id", product.id);
+//   img.setAttribute("data-id", product.id);
+//   figcaption.setAttribute("data-id", product.id);
 
-  const button = document.createElement("button");
-  button.className = "button_for_card";
-  button.textContent = strForButtonInCardForPay;
-  button.setAttribute("data-index", index);
-  productActionsDiv.appendChild(button); // Add button second
+//   figure.appendChild(img);
+//   figure.appendChild(figcaption);
 
-  div.setAttribute("data-index", index);
-  ancore.setAttribute("data-index", index);
-  figure.setAttribute("data-index", index);
-  img.setAttribute("data-index", index);
-  figcaption.setAttribute("data-index", index);
+//   ancore.appendChild(figure);
 
-  figure.appendChild(img);
-  figure.appendChild(figcaption);
+//   div.appendChild(ancore);
+//   div.appendChild(productActionsDiv); // Append the new container to the item_price div
+//   return div;
+// }
 
-  ancore.appendChild(figure);
+// // פונקציה ליצירת קונטיינר של כל המוצרים במסך סל קניות
+// export function loadAllCardInMyShoppingCart(
+//   productsArry,
+//   containerProducts,
+//   strForButtonInCard
+// ) {
+//   const container = document.querySelector(containerProducts);
+//   container.innerHTML = ""; // נקה קודם
+//   if (productsArry.length > 0) {
+//     productsArry.forEach((product) => {
+//       const productElement = createProductElementInMyShoppingCart(
+//         product,
+//         strForButtonInCard
+//       );
+//       container.appendChild(productElement);
+//     });
+//   }
+// }
 
-  div.appendChild(ancore);
-  div.appendChild(productActionsDiv); // Append the new container to the item_price div
-  return div;
-}
+// // יצירת כרטיס מוצר אחד
+// export function loadProductCard(itemProduct) {
+//   const continer_item = document.querySelector(".continer_item");
+//   const main_p_open_face = document.querySelector(".main_p_open_face");
+//   main_p_open_face.textContent = itemProduct.h2ForProduct;
+//   continer_item.innerHTML = `<div class = "item_in_choice_for_img"><img class= "item_in_choice_img" src = ${itemProduct.img}></img></div>
+//      <div class = "item_Description"><p class= "p_ProductDescription">${itemProduct.ProductDescription}</p></div>
+//      <div class = "item_for_button_for_pay"><button class = "item_button_pay">${itemProduct.price}<br>pay</button></div>`;
+// }
 
-// פונקציה ליצירת קונטיינר של כל המוצרים במסך סל קניות
-export function loadAllCardInMyShoppingCart(
-  productsArry,
-  containerProducts,
-  strForButtonInCard
-) {
-  const container = document.querySelector(containerProducts);
-  container.innerHTML = ""; // נקה קודם
-  if (productsArry.length > 0) {
-    productsArry.forEach((product, index) => {
-      const productElement = createProductElementInMyShoppingCart(
-        product,
-        index,
-        strForButtonInCard
-      );
-      container.appendChild(productElement);
-    });
+// export function updateCartCounter(count) {
+//     document.querySelector(".figcaption_my_products").textContent = count;
+// }
+
+// export function setMainTitle(title) {
+//     document.querySelector(".main_p_open_face").textContent = title;
+// }
+
+// // פונקציה שמחליפה בין התצוגות
+// export function switchView(viewToShow) {
+//     // קודם כל, להסתיר הכל
+//     document.querySelector(".continer_all_item").classList.add("hidden");
+//     document.querySelector(".continer_my_item").classList.add("hidden");
+//     document.querySelector(".continer_item").classList.add("hidden");
+
+//     // להציג את התצוגה הרצויה
+//     if(viewToShow) {
+//         document.querySelector(viewToShow).classList.remove("hidden");
+//     }
+// }
+
+// export function switchViewCategory(viewToShow) {
+//     // קודם כל, להסתיר הכל
+//     document.querySelectorAll(".category_button").forEach((item) => {
+//         item.classList.remove("active");
+//     })
+
+//     // להציג את התצוגה הרצויה
+//     if(viewToShow) {
+//         viewToShow.classList.add("active");
+//     }
+//     else{document.querySelector(".category_button").classList.add("active")}
+// }
+
+import { ClassesName } from "./ClassesName";
+
+export class UI {
+  #mainContiner;
+  #continerProduct;
+  #nameOfClasses;
+  constructor() {
+    this.#mainContiner = document.querySelector(".main_continer");
+    this.#continerProduct = document.querySelector(".continer_product");
+    this.#nameOfClasses = {
+      pOpenFace: "main_p_open_face",
+      categoryMenu: "category_menu",
+      productItem: "item_price",
+      productFigureImg: "figureImg",
+      productItemImg: "item_price_img",
+      productfigcaptionPrice: "item_figcaption_price",
+      countOfCart: ".figcaption_my_products",
+      productActions: "product_actions",
+      productQuantity: "product_quantity",
+      buttonForAdd: "button_for_add",
+      buttonForPay: "button_for_pay",
+      butoonForRemove: "butoon_for_remove",
+    };
   }
-}
 
-// יצירת כרטיס מוצר אחד
-export function loadProductCard(itemProduct) {
-  const continer_item = document.querySelector(".continer_item");
-  const main_p_open_face = document.querySelector(".main_p_open_face");
-  main_p_open_face.textContent = itemProduct.h2ForProduct;
-  continer_item.innerHTML = `<div class = "item_in_choice_for_img"><img class= "item_in_choice_img" src = ${itemProduct.img}></img></div>
-     <div class = "item_Description"><p class= "p_ProductDescription">${itemProduct.ProductDescription}</p></div>
-     <div class = "item_for_button_for_pay"><button class = "item_button_pay">${itemProduct.price}<br>pay</button></div>`;
-}
+  updateCartCounter(count) {
+    document.querySelector(this.#nameOfClasses.countOfCart).textContent = count;
+  }
 
-export function updateCartCounter(count) {
-    document.querySelector(".figcaption_my_products").textContent = count;
-}
+  #renderMainP(title) {
+    const mainP = document.createElement("p");
+    mainP.className = ClassesName.MAIN_P_OPEN_FACE;
+    mainP.textContent = title;
+    this.#mainContiner.appendChild(mainP);
+  }
 
-export function setMainTitle(title) {
-    document.querySelector(".main_p_open_face").textContent = title;
-}
+  #renderCategoryMenu() {
+    const div = document.createElement("div");
+    div.className = ClassesName.CATEGORY_MENU;
 
-// פונקציה שמחליפה בין התצוגות
-export function switchView(viewToShow) {
-    // קודם כל, להסתיר הכל
-    document.querySelector(".continer_all_item").classList.add("hidden");
-    document.querySelector(".continer_my_item").classList.add("hidden");
-    document.querySelector(".continer_item").classList.add("hidden");
-    
-    // להציג את התצוגה הרצויה
-    if(viewToShow) {
-        document.querySelector(viewToShow).classList.remove("hidden");
-    }
-}
+    const butoon1 = document.createElement("button");
+    butoon1.className = `${ClassesName.CATEGORY_BUTTON} ${ClassesName.ACTIVE}`;
+    butoon1.textContent = "All Products";
 
+    const butoon2 = document.createElement("button");
+    butoon2.className = ClassesName.CATEGORY_BUTTON;
+    butoon2.textContent = "electronic";
 
-export function switchViewCategory(viewToShow) {
+    const butoon3 = document.createElement("button");
+    butoon3.className = ClassesName.CATEGORY_BUTTON;
+    butoon3.textContent = "Cellphone";
+
+    div.appendChild(butoon1);
+    div.appendChild(butoon2);
+    div.appendChild(butoon3);
+
+    this.#mainContiner.appendChild(div);
+  }
+
+  // טעינת כל המוצרים על הלוח
+  renderAllCard(productsArry) {
+    this.#mainContiner.innerHTML = ""; // נקה קודם
+    this.#continerProduct.innerHTML = "";
+    this.#renderMainP("our store");
+    this.#renderCategoryMenu();
+    productsArry.forEach((product) => {
+      const productElement = this.#createProductForStore(product);
+      this.#continerProduct.appendChild(productElement);
+    });
+    this.#mainContiner.appendChild(this.#continerProduct);
+  }
+
+  // יצירת מוצר אחד לטובת מוצרי החנות
+  #createProductForStore(product) {
+    // אלמנטים עיקריים
+    const div = document.createElement("div");
+    div.className = ClassesName.PRODUCT_ITEM;
+    div.setAttribute("data-id", product.id);
+
+    const ancore = document.createElement("a");
+    ancore.setAttribute("data-id", product.id);
+
+    const figure = document.createElement("figure");
+    figure.className = ClassesName.PRODUCT_FIGURE_IMG;
+    figure.setAttribute("data-id", product.id);
+
+    const img = document.createElement("img");
+    img.className = ClassesName.PRODUCT_ITEM_IMG;
+    img.src = product.img;
+    img.setAttribute("data-id", product.id);
+
+    const figcaption = document.createElement("figcaption");
+    figcaption.className = ClassesName.PRODUCT_FIGCAPTION_PRICE;
+    figcaption.textContent = product.price;
+    figcaption.setAttribute("data-id", product.id);
+
+    // אלמנט לפעולות על המוצר (כמות + כפתור)
+    const productActionsDiv = document.createElement("div");
+    productActionsDiv.className = ClassesName.PRODUCT_ACTION;
+
+    const quantityP = document.createElement("p");
+    quantityP.className = ClassesName.PRODUCT_QUANTITY;
+    quantityP.textContent = `Quantity in stack: ${product.Quantity}`;
+    quantityP.setAttribute("data-id", product.id);
+
+    const button = document.createElement("button");
+    button.className = ClassesName.BUTTON_FOR_ADD;
+    button.textContent = "pay now";
+    button.setAttribute("data-id", product.id);
+
+    // בניית מבנה ה־DOM
+    productActionsDiv.appendChild(quantityP);
+    productActionsDiv.appendChild(button);
+
+    figure.appendChild(img);
+    figure.appendChild(figcaption);
+
+    ancore.appendChild(figure);
+
+    div.appendChild(ancore);
+    div.appendChild(productActionsDiv);
+
+    return div;
+  }
+
+  // טעינת כל המוצרים על הלוח
+  renderCardInCart(productsArry) {
+    this.#mainContiner.innerHTML = ""; // נקה קודם
+    this.#continerProduct.innerHTML = "";
+    this.#renderMainP("your products");
+    this.#renderCategoryMenu();
+    productsArry.forEach((product) => {
+      const productElement = this.#createProductForCart(product);
+      this.#continerProduct.appendChild(productElement);
+    });
+    this.#mainContiner.appendChild(this.#continerProduct);
+  }
+
+  // יצירת מוצר אחד לטובת מוצרי החנות
+  #createProductForCart(product) {
+    // אלמנטים עיקריים
+    const div = document.createElement("div");
+    div.className = ClassesName.PRODUCT_ITEM;
+    div.setAttribute("data-id", product.id);
+
+    const ancore = document.createElement("a");
+    ancore.setAttribute("data-id", product.id);
+
+    const figure = document.createElement("figure");
+    figure.className = ClassesName.PRODUCT_FIGURE_IMG;
+    figure.setAttribute("data-id", product.id);
+
+    const img = document.createElement("img");
+    img.className = ClassesName.PRODUCT_ITEM_IMG;
+    img.src = product.img;
+    img.setAttribute("data-id", product.id);
+
+    const figcaption = document.createElement("figcaption");
+    figcaption.className = ClassesName.PRODUCT_FIGCAPTION_PRICE;
+    figcaption.textContent = product.price;
+    figcaption.setAttribute("data-id", product.id);
+
+    // אלמנט לפעולות על המוצר (כמות + כפתור)
+    const productActionsDiv = document.createElement("div");
+    productActionsDiv.className = ClassesName.PRODUCT_ACTION;
+
+    const buttonRemove = document.createElement("button"); // תיקנתי מ-"butoon" ל-"button"
+    buttonRemove.className = ClassesName.BUTTON_FOR_REMOVE;
+    buttonRemove.textContent = "remove";
+    buttonRemove.setAttribute("data-id", product.id);
+    productActionsDiv.appendChild(buttonRemove); // Add quantity paragraph first
+
+    const button = document.createElement("button");
+    button.className = ClassesName.BUTTON_FOR_PAY;
+    button.textContent = "pay now";
+    button.setAttribute("data-id", product.id);
+    productActionsDiv.appendChild(button); // Add button second
+
+    // בניית מבנה ה־DOM
+    productActionsDiv.appendChild(quantityP);
+    productActionsDiv.appendChild(button);
+
+    figure.appendChild(img);
+    figure.appendChild(figcaption);
+
+    ancore.appendChild(figure);
+
+    div.appendChild(ancore);
+    div.appendChild(productActionsDiv);
+
+    return div;
+  }
+
+  // יצירת כרטיס מוצר אחד
+  loadProductCard(itemProduct) {
+    this.#mainContiner.innerHTML = "";
+    this.#renderMainP(itemProduct.h2ForProduct);
+    this.#continerProduct.innerHTML = `<div class = "item_in_choice_for_img"><img class= "item_in_choice_img" src = ${itemProduct.img}></img></div>
+        <div class = "item_Description"><p class= "p_ProductDescription">${itemProduct.ProductDescription}</p></div>
+        <div class = "item_for_button_for_pay"><button class = "item_button_pay">${itemProduct.price}<br>pay</button></div>`;
+    this.#mainContiner.appendChild(this.#continerProduct);
+  }
+
+  // החלפת פעולה על הכפתורים בתפריט הקטגוריות
+  switchViewCategory(viewToShow) {
     // קודם כל, להסתיר הכל
     document.querySelectorAll(".category_button").forEach((item) => {
-        item.classList.remove("active");
-    })
+      item.classList.remove("active");
+    });
 
     // להציג את התצוגה הרצויה
-    if(viewToShow) {
-        viewToShow.classList.add("active");
+    if (viewToShow) {
+      viewToShow.classList.add("active");
+    } else {
+      document.querySelector(".category_button").classList.add("active");
     }
-    else{document.querySelector(".category_button").classList.add("active")}
+  }
 }
-

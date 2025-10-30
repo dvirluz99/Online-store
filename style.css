@@ -164,14 +164,14 @@ main {
 }
 
 /* ===== מוצרים ===== */
-.continer_all_item {
+.main_continer{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 20px;
   margin-top: 20px;
 }
 
-.continer_my_item {
+.continer_product {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 20px;

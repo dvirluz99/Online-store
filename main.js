@@ -1,26 +1,29 @@
+// // ייבוא נתונים
+// import { products } from "./Modules/products.js";
+// import { getCartCount } from "./Modules/Cart.js";
 
+// // ייבוא פונקציות UI
+// import { loadAllCard, updateCartCounter, setMainTitle } from "./Modules/UI.js";
 
-// ייבוא נתונים
-import { products } from "./Modules/products.js";
-import { getCartCount } from "./Modules/cart.js";
+// // ייבוא כל המאזינים
+// import { setupEventListeners } from "./Modules/listeners.js";
 
-// ייבוא פונקציות UI
-import { loadAllCard, updateCartCounter, setMainTitle } from "./Modules/ui.js";
+// // --- הפעלה ראשונית ---
 
-// ייבוא כל המאזינים
-import { setupEventListeners } from "./Modules/listeners.js";
+// // 1. קביעת כותרת ראשית
+// setMainTitle("Store products");
 
+// // 2. עדכון מונה הסל בטעינה
+// updateCartCounter(getCartCount());
 
-// --- הפעלה ראשונית ---
+// // 3. טעינת כל המוצרים לדף הבית
+// loadAllCard(products, ".continer_all_item", "add to card");
 
-// 1. קביעת כותרת ראשית
-setMainTitle("Store products");
+// // 4. הפעלת כל המאזינים לאירועים
+// setupEventListeners();
 
-// 2. עדכון מונה הסל בטעינה
-updateCartCounter(getCartCount());
+import { App } from "./Modules/app";
 
-// 3. טעינת כל המוצרים לדף הבית
-loadAllCard(products, ".continer_all_item", "add to card");
+const app = new App();
 
-// 4. הפעלת כל המאזינים לאירועים
-setupEventListeners();
+app.init();
