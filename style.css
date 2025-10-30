@@ -163,14 +163,6 @@ main {
   border-color: #2563eb;
 }
 
-/* ===== מוצרים ===== */
-.main_continer{
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
-}
-
 .continer_product {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -232,7 +224,7 @@ main {
   color: #2563eb;
 }
 
-.button_for_card, .butoon_for_remove{
+.button_for_pay, .butoon_for_remove, .button_for_add{
   background-color: #475569;
   font-size: 14px;
   color: white;

@@ -3,6 +3,7 @@ export class ClassesName{
     static MAIN_CONTINER = "main_continer";
     static MAIN_P_OPEN_FACE = "main_p_open_face";
     static CATEGORY_MENU = "category_menu";
+    static BUTTON_CART = "button_my_shopinig";
     static CATEGORY_BUTTON = "category_button";
     static PRODUCT_ITEM =  "item_price";
     static PRODUCT_FIGURE_IMG = "figureImg";

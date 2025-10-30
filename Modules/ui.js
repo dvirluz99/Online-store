@@ -1,198 +1,4 @@
-// function createProductElement(product, strForButtonInCard) {
-//   const className1 = {
-//     productItem: "item_price",
-//     productFigureImg: "figureImg",
-//     productItemImg: "item_price_img",
-//     productfigcaptionPrice: "item_figcaption_price",
-//   };
-
-//   // אלמנטים עיקריים
-//   const div = document.createElement("div");
-//   div.className = className1.productItem;
-//   div.setAttribute("data-id", product.id);
-
-//   const ancore = document.createElement("a");
-//   ancore.setAttribute("data-id", product.id);
-
-//   const figure = document.createElement("figure");
-//   figure.className = className1.productFigureImg;
-//   figure.setAttribute("data-id", product.id);
-
-//   const img = document.createElement("img");
-//   img.className = className1.productItemImg;
-//   img.src = product.img;
-//   img.setAttribute("data-id", product.id);
-
-//   const figcaption = document.createElement("figcaption");
-//   figcaption.className = className1.productfigcaptionPrice;
-//   figcaption.textContent = product.price;
-//   figcaption.setAttribute("data-id", product.id);
-
-//   // אלמנט לפעולות על המוצר (כמות + כפתור)
-//   const productActionsDiv = document.createElement("div");
-//   productActionsDiv.className = "product_actions";
-
-//   const quantityP = document.createElement("p");
-//   quantityP.className = "product_quantity";
-//   quantityP.textContent = `Quantity in stack: ${product.Quantity}`;
-//   quantityP.setAttribute("data-id", product.id);
-
-//   const button = document.createElement("button");
-//   button.className = "button_for_card";
-//   button.textContent = strForButtonInCard;
-//   button.setAttribute("data-id", product.id);
-
-//   // בניית מבנה ה־DOM
-//   productActionsDiv.appendChild(quantityP);
-//   productActionsDiv.appendChild(button);
-
-//   figure.appendChild(img);
-//   figure.appendChild(figcaption);
-
-//   ancore.appendChild(figure);
-
-//   div.appendChild(ancore);
-//   div.appendChild(productActionsDiv);
-
-//   return div;
-// }
-
-// // פונקציה ליצירת קונטיינר של כל המוצרים במסך הראשי
-// export function loadAllCard(productsArry, containerProducts, strForButtonInCard) {
-//   const container = document.querySelector(containerProducts);
-//   container.innerHTML = ""; // נקה קודם
-//   productsArry.forEach((product) => {
-//     const productElement = createProductElement(
-//       product,
-//       strForButtonInCard
-//     );
-//     container.appendChild(productElement);
-//   });
-// }
-
-// function createProductElementInMyShoppingCart(
-//   product,
-//   strForButtonInCardForPay
-// ) {
-//   const className1 = {
-//     productItem: "item_price",
-//     productFigureImg: "figureImg",
-//     productItemImg: "item_price_img",
-//     productfigcaptionPrice: "item_figcaption_price",
-//   };
-//   const div = document.createElement("div");
-//   div.className = className1.productItem;
-
-//   const ancore = document.createElement("a");
-
-//   const figure = document.createElement("figure");
-//   figure.className = className1.productFigureImg;
-
-//   const img = document.createElement("img");
-//   img.className = className1.productItemImg;
-
-//   const figcaption = document.createElement("figcaption");
-//   figcaption.className = className1.productfigcaptionPrice;
-
-//   figcaption.textContent = product.price;
-//   img.src = product.img;
-
-//   // Create a container for the button and quantity
-//   const productActionsDiv = document.createElement("div");
-//   productActionsDiv.className = "product_actions";
-
-//   const buttonRemove = document.createElement("button"); // תיקנתי מ-"butoon" ל-"button"
-//   buttonRemove.className = "butoon_for_remove";
-//   buttonRemove.textContent = `remove`;
-//   buttonRemove.setAttribute("data-id", product.id);
-//   productActionsDiv.appendChild(buttonRemove); // Add quantity paragraph first
-
-//   const button = document.createElement("button");
-//   button.className = "button_for_card";
-//   button.textContent = strForButtonInCardForPay;
-//   button.setAttribute("data-id", product.id);
-//   productActionsDiv.appendChild(button); // Add button second
-
-//   div.setAttribute("data-id", product.id);
-//   ancore.setAttribute("data-id", product.id);
-//   figure.setAttribute("data-id", product.id);
-//   img.setAttribute("data-id", product.id);
-//   figcaption.setAttribute("data-id", product.id);
-
-//   figure.appendChild(img);
-//   figure.appendChild(figcaption);
-
-//   ancore.appendChild(figure);
-
-//   div.appendChild(ancore);
-//   div.appendChild(productActionsDiv); // Append the new container to the item_price div
-//   return div;
-// }
-
-// // פונקציה ליצירת קונטיינר של כל המוצרים במסך סל קניות
-// export function loadAllCardInMyShoppingCart(
-//   productsArry,
-//   containerProducts,
-//   strForButtonInCard
-// ) {
-//   const container = document.querySelector(containerProducts);
-//   container.innerHTML = ""; // נקה קודם
-//   if (productsArry.length > 0) {
-//     productsArry.forEach((product) => {
-//       const productElement = createProductElementInMyShoppingCart(
-//         product,
-//         strForButtonInCard
-//       );
-//       container.appendChild(productElement);
-//     });
-//   }
-// }
-
-// // יצירת כרטיס מוצר אחד
-// export function loadProductCard(itemProduct) {
-//   const continer_item = document.querySelector(".continer_item");
-//   const main_p_open_face = document.querySelector(".main_p_open_face");
-//   main_p_open_face.textContent = itemProduct.h2ForProduct;
-//   continer_item.innerHTML = `<div class = "item_in_choice_for_img"><img class= "item_in_choice_img" src = ${itemProduct.img}></img></div>
-//      <div class = "item_Description"><p class= "p_ProductDescription">${itemProduct.ProductDescription}</p></div>
-//      <div class = "item_for_button_for_pay"><button class = "item_button_pay">${itemProduct.price}<br>pay</button></div>`;
-// }
-
-// export function updateCartCounter(count) {
-//     document.querySelector(".figcaption_my_products").textContent = count;
-// }
-
-// export function setMainTitle(title) {
-//     document.querySelector(".main_p_open_face").textContent = title;
-// }
-
-// // פונקציה שמחליפה בין התצוגות
-// export function switchView(viewToShow) {
-//     // קודם כל, להסתיר הכל
-//     document.querySelector(".continer_all_item").classList.add("hidden");
-//     document.querySelector(".continer_my_item").classList.add("hidden");
-//     document.querySelector(".continer_item").classList.add("hidden");
-
-//     // להציג את התצוגה הרצויה
-//     if(viewToShow) {
-//         document.querySelector(viewToShow).classList.remove("hidden");
-//     }
-// }
-
-// export function switchViewCategory(viewToShow) {
-//     // קודם כל, להסתיר הכל
-//     document.querySelectorAll(".category_button").forEach((item) => {
-//         item.classList.remove("active");
-//     })
-
-//     // להציג את התצוגה הרצויה
-//     if(viewToShow) {
-//         viewToShow.classList.add("active");
-//     }
-//     else{document.querySelector(".category_button").classList.add("active")}
-// }
-
-import { ClassesName } from "./ClassesName";
+import { ClassesName } from "./ClassesName.js";
 
 export class UI {
   #mainContiner;
@@ -299,7 +105,7 @@ export class UI {
 
     const button = document.createElement("button");
     button.className = ClassesName.BUTTON_FOR_ADD;
-    button.textContent = "pay now";
+    button.textContent = "add to card";
     button.setAttribute("data-id", product.id);
 
     // בניית מבנה ה־DOM
@@ -371,7 +177,6 @@ export class UI {
     productActionsDiv.appendChild(button); // Add button second
 
     // בניית מבנה ה־DOM
-    productActionsDiv.appendChild(quantityP);
     productActionsDiv.appendChild(button);
 
     figure.appendChild(img);
@@ -388,10 +193,11 @@ export class UI {
   // יצירת כרטיס מוצר אחד
   loadProductCard(itemProduct) {
     this.#mainContiner.innerHTML = "";
+    this.#continerProduct.innerHTML = "";
     this.#renderMainP(itemProduct.h2ForProduct);
     this.#continerProduct.innerHTML = `<div class = "item_in_choice_for_img"><img class= "item_in_choice_img" src = ${itemProduct.img}></img></div>
         <div class = "item_Description"><p class= "p_ProductDescription">${itemProduct.ProductDescription}</p></div>
-        <div class = "item_for_button_for_pay"><button class = "item_button_pay">${itemProduct.price}<br>pay</button></div>`;
+        <div class = "item_for_button_for_pay"><button class = "item_button_pay">${itemProduct.price}<br>pay</button></div>`;    
     this.#mainContiner.appendChild(this.#continerProduct);
   }
 
