@@ -18,7 +18,7 @@ export class ProductService {
   }
 
   selectProductsByCategory(nameOfCategory) {
-    if (nameOfCategory === "All Products") return this.getAllProducts();
+    if (nameOfCategory === "all") return this.#products;
     return this.#products.filter((item) => item.category === nameOfCategory);
   }
 }

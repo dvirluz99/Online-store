@@ -51,7 +51,7 @@ header {
 }
 
 /* כפתור אזור אישי */
-.a_my_area {
+.a_my_area, .button_in_tooltip_cart_remove {
   background: #2563eb;
   border: none;
   padding: 8px 12px;
@@ -63,7 +63,7 @@ header {
   font-weight: bold;
 }
 
-.a_my_area:hover {
+.a_my_area:hover, .button_in_tooltip_cart_remove:hover {
   background: #1d4ed8;
 }
 

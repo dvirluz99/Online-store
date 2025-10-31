@@ -18,4 +18,20 @@ export class ClassesName{
     static BUTTON_MY_LOGO = "button_my_logo";
     static SIDEBAR_OUR_PRODUCTS = "sidebar_ul_a_ourProducts";
     static ACTIVE = "active";
+    static TOOLTIP_MY_PRODUCTS = "hover_element";
+    static TOOLTIP_BOX_MY_CART = "tooltip_box";
+    static BUTTON_IN_TOOLTIP_CART_REMOVE = "button_in_tooltip_cart_remove";
+}
+
+export class State{
+    static VIEW = {
+                    SHOP: "shop",
+                    CART: "cart"
+    };
+
+    static CATEGORY = {
+                    ALL: "all",
+                    ELECTRONIC: "electronic",
+                    CELLPHONE: "cellphone",
+    };
 }

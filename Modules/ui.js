@@ -1,12 +1,15 @@
-import { ClassesName } from "./ClassesName.js";
+import { ClassesName, State} from "./Constants.js";
 
 export class UI {
   #mainContiner;
   #continerProduct;
   #nameOfClasses;
+  #tooltip_my_products;
+  #tooltipBox;
   constructor() {
     this.#mainContiner = document.querySelector(".main_continer");
     this.#continerProduct = document.querySelector(".continer_product");
+    this.#tooltip_my_products = document.querySelector(".hover_element");
     this.#nameOfClasses = {
       pOpenFace: "main_p_open_face",
       categoryMenu: "category_menu",
@@ -39,15 +42,18 @@ export class UI {
     div.className = ClassesName.CATEGORY_MENU;
 
     const butoon1 = document.createElement("button");
-    butoon1.className = `${ClassesName.CATEGORY_BUTTON} ${ClassesName.ACTIVE}`;
+    butoon1.className = ClassesName.CATEGORY_BUTTON + " " + ClassesName.ACTIVE;
+    butoon1.setAttribute("data-state", `${State.CATEGORY.ALL}`)
     butoon1.textContent = "All Products";
 
     const butoon2 = document.createElement("button");
     butoon2.className = ClassesName.CATEGORY_BUTTON;
+    butoon2.setAttribute("data-state", `${State.CATEGORY.ELECTRONIC}`)
     butoon2.textContent = "electronic";
 
     const butoon3 = document.createElement("button");
     butoon3.className = ClassesName.CATEGORY_BUTTON;
+    butoon3.setAttribute("data-state", `${State.CATEGORY.CELLPHONE}`)
     butoon3.textContent = "Cellphone";
 
     div.appendChild(butoon1);
@@ -197,22 +203,42 @@ export class UI {
     this.#renderMainP(itemProduct.h2ForProduct);
     this.#continerProduct.innerHTML = `<div class = "item_in_choice_for_img"><img class= "item_in_choice_img" src = ${itemProduct.img}></img></div>
         <div class = "item_Description"><p class= "p_ProductDescription">${itemProduct.ProductDescription}</p></div>
-        <div class = "item_for_button_for_pay"><button class = "item_button_pay">${itemProduct.price}<br>pay</button></div>`;    
+        <div class = "item_for_button_for_pay"><button class = "item_button_pay">${itemProduct.price}<br>pay</button></div>`;
     this.#mainContiner.appendChild(this.#continerProduct);
   }
 
   // החלפת פעולה על הכפתורים בתפריט הקטגוריות
-  switchViewCategory(viewToShow) {
+  switchViewCategory(viewToShowCategory) {
     // קודם כל, להסתיר הכל
-    document.querySelectorAll(".category_button").forEach((item) => {
+    document.querySelectorAll(`.${ClassesName.CATEGORY_BUTTON}`).forEach((item) => {
       item.classList.remove("active");
+      if(item.dataset.state === viewToShowCategory){
+        item.classList.add("active");
+      }
     });
+    return;
+  }
 
-    // להציג את התצוגה הרצויה
-    if (viewToShow) {
-      viewToShow.classList.add("active");
-    } else {
-      document.querySelector(".category_button").classList.add("active");
+  // יצירת חלונית קטנה מתחת לסל קניות אם העכבר מעליו
+  creatTooltipBox() {
+    if (!this.#tooltipBox) {
+      this.#tooltipBox = document.createElement("div");
+      this.#tooltipBox.className = ClassesName.TOOLTIP_BOX_MY_CART;
+      const button_remove = document.createElement("button");
+      button_remove.className = ClassesName.BUTTON_IN_TOOLTIP_CART_REMOVE;
+      button_remove.textContent = "clear cart";
+      this.#tooltipBox.appendChild(button_remove);
+      this.#tooltip_my_products.appendChild(this.#tooltipBox);
     }
+  }
+
+  // הסרת החלונית הקטנה אם העכבר כבר לא מעליו
+  removeTooltipBox() {
+    setTimeout(() => {
+      if (this.#tooltipBox && !this.#tooltip_my_products.matches(":hover")) {
+        this.#tooltipBox.remove();
+        this.#tooltipBox = null;
+      }
+    }, 300);
   }
 }

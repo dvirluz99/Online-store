@@ -30,7 +30,7 @@ export class Cart {
   }
 
   selectCartByCategory(nameOfCategory) {
-    if (nameOfCategory === "All Products") return myproduct;
+    if (nameOfCategory === "all") return this.#myCart;
     return this.#myCart.filter((item) => item.category === nameOfCategory);
   }
 
